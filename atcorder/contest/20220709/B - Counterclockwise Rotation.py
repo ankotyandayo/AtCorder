@@ -1,8 +1,13 @@
 import math
+a,b,d= map(int, input().split())
+d = math.radians(d)
 
-a,b,d = map(int,input().split())
-kakudo = round(math.degrees(math.atan2(a, b)))
-hankei = round(math.sqrt(a**2 + b**2))
+print(a * math.cos(d) - b * math.sin(d),a * math.sin(d) + b * math.cos(d))
+
+
+
+# 回転行列
+#  (acosθ−bsinθ,asinθ+bcosθ) 
 
 
 # https://atcoder.jp/contests/abc259/tasks/abc259_b
