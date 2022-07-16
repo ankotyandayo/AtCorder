@@ -1,6 +1,10 @@
+from re import A
+
+
 def main():
     s = input()
-    runLengthEncode(s)
+    A = runLengthEncode(s)
+    ans = gather(A)
 
 def runLengthEncode(s):
     b = s[0]
@@ -10,7 +14,13 @@ def runLengthEncode(s):
         if i == b:
             c += 1
             continue
-        A.apend((i,c))
+        A.append((i,c))
         b = i
         c = 1
+    return A  
+
+def gather(A):
+    
+
+main()
         
