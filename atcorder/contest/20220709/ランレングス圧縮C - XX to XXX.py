@@ -1,7 +1,6 @@
 
 # ランレングス圧縮
 
-from unittest import result
 
 
 S = input()
