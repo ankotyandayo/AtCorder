@@ -6,3 +6,5 @@ for i in s:
         print(i)
         exit()
 print("-1")
+
+# https://atcoder.jp/contests/abc260/tasks/abc260_a
