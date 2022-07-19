@@ -1,6 +1,4 @@
-from itertools import count
-from re import A
-
+# ダブリンぐ(同じ操作を繰り返してN回目の状態を求める)
 
 def main():
     s = input()
