@@ -1,52 +1,18 @@
-# ダブリンぐ(同じ操作を繰り返してN回目の状態を求める)
+s = input()
+n = len(s)
 
-def main():
-    s = input()
-    leng = len(s)
-    A = runLengthEncode(s)
-    ans = gather(A,leng)
-    print(ans)
+log = 18
+dp = [[0] * n for _ in range(log)]
 
-def runLengthEncode(s):
-    b = s[0]
-    c = 1
-    A = []
-    for i in s[1:]:
-        if i == b:
-            c += 1
-            continue
-        A.append((i,c))
-        b = i
-        c = 1
-    return A  
+for i in range(n):
+    dp[0][i] = i+1 if s[i] == "R" else i-1
 
-def gather(A,leng):
-    N = len(A)
-    ans = [0] * leng 
-    count = 0
-    for i in range(0,N,2):
-        R = A[i][1]
-        L = A[i+1][1]
-        count += A[i][1] + A[i+1][1]
-        children1 = (A[i][1] + A[i+1][1]) // 2
-        children2 = children1 + 1
-        # R + Lの数が偶数
-        if (count) % 2 == 0:
-            ans[count-L-1] = children1
-            ans[count-L] = children1
-        # R + Lの数が奇数
-        else:
-            if R > L:
-                ans[count-L-1] = children1
-                ans[count-L] = children2
-            else:
-                ans[count-L-1] = children2
-                ans[count-L] = children1
-        return ans
-            
-            
-        
-    
+for k in range(1, log):
+    for i in range(n):
+        dp[k][i] = dp[k-1][dp[k-1][i]]
 
-main()
-        
+ans = [0] * n
+for i in dp[log-1]:
+    ans[i] += 1
+
+print(*ans)
