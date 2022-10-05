@@ -14,6 +14,7 @@ for i in range(N):
     
 L = 1
 R = N+1
+i = 0
 
 while True:
     while vol[i]:
@@ -23,14 +24,17 @@ while True:
         i += 1
         vol[i] = True
     else:
-        if R <= L:
-            break
-        elif vol[R]:
-            sold += 1
-            R -= 1
-    break
+        while sold < 2:
+            if R > L:
+                if vol[R]:
+                    sold += 1
+                    R -= 1
+            else:
+                break
+    if sold < 2:
+        break
             
-print(i)
+print(i+1)
         
 
 
