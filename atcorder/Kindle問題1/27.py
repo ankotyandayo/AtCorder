@@ -34,3 +34,27 @@ for i in range(1,N+1):
     ans+=BFS(i)
 
 print(ans)
+
+# 3 3
+# 1 2
+# 2 3
+# 3 2
+
+N,M = map(int,input().split())
+connect = [[] for i in range(N+1)]
+
+for i in range(M):
+    A,B = map(int,input().split())
+    connect[A].append(B)
+
+count = 0
+for i in range(1,N+1):
+    BFS = [False] ** N
+    
+    for k in range(connect[i]):
+        if BFS[k] == False:
+            count += 1
+            BFS[k] = True
+        
+        
+
