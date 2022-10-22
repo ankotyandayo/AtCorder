@@ -18,6 +18,16 @@ def BFS(start):
     que.append(start)
     
     # 中身を書いていく
+    while que:
+        now_city = que.popleft()
+        for to_city in connect[now_city]:
+            if visited[to_city] == False:
+                visited[to_city] == True
+                cnt += 1
+                que.append(to_city)
+    return cnt
+        
+        
 
  
 
